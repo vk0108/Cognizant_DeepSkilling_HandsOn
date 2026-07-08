@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Portal - Home</title>
   <link rel="stylesheet" href="styles.css">
+  <script type='module' src='app.js'></script>
 </head>
 <body>
 
@@ -48,38 +49,16 @@
 
     <section id="courses">
       <h2>Your Courses</h2>
-
-      <div class="course-grid">
-        <article class="course-card">
-          <h3>Introduction to HTML5</h3>
-          <p>Learn the building blocks of the web with semantic markup and accessible structure.</p>
-          <span>3 Credits</span>
-        </article>
-
-        <article class="course-card">
-          <h3>CSS3 Fundamentals</h3>
-          <p>Master selectors, the box model, and modern layout techniques for styling web pages.</p>
-          <span>4 Credits</span>
-        </article>
-
-        <article class="course-card">
-          <h3>JavaScript Essentials</h3>
-          <p>Build interactive experiences using core JavaScript concepts and DOM manipulation.</p>
-          <span>4 Credits</span>
-        </article>
-
-        <article class="course-card">
-          <h3>Responsive Web Design</h3>
-          <p>Design layouts that adapt beautifully across mobile, tablet, and desktop viewports.</p>
-          <span>3 Credits</span>
-        </article>
-
-        <article class="course-card">
-          <h3>Version Control with Git</h3>
-          <p>Track changes, collaborate with branches, and manage projects using Git and GitHub.</p>
-          <span>2 Credits</span>
-        </article>
+      <label for="course-search" class="search-label">Search courses by name</label>
+      <div class="course-controls">
+        <input type="text" id="course-search" class="search-input" placeholder="e.g. JavaScript">
+        <button type="button" id="sort-credits-btn" class="sort-btn">Sort by Credits</button>
       </div>
+      <div class="course-grid">
+        
+      </div>
+      <p id="selected-course-info"></p>
+      <p id="total-credits"></p>
     </section>
   </main>
 

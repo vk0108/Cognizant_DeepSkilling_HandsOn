@@ -129,6 +129,58 @@ nav ul li a:hover {
   margin-bottom: 2rem;
 }
 
+.search-label {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.course-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+.sort-btn {
+  padding: 0.6rem 1.1rem;
+  border: 1px solid #1e3a8a;
+  background-color: #ffffff;
+  color: #1e3a8a;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sort-btn:hover {
+  background-color: #1e3a8a;
+  color: #ffffff;
+}
+
 .course-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -145,6 +197,22 @@ nav ul li a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+#selected-course-info {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e3a8a;
+  min-height: 1.5rem;
 }
 
 .course-card h3 {
