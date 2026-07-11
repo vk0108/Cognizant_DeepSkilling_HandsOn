@@ -18,10 +18,17 @@ Including another URLconf
 # the imported modules are used to define URL patterns and route them to the appropriate views.
 from courses import views
 from django.contrib import admin
-from django.urls import path
+from rest_framework import routers
+from django.urls import include, path
+
+router = routers.DefaultRouter()
+router.register(r'courses', views.CourseViewList, basename='course')
 
 # This has a list of URL patterns that maps URLs to views. 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/hello/', views.hello_view, name='hello'),
+    path('api/courses/', views.CourseListView.as_view(), name='course-list'),
+    path('api/courses/<int:pk>/', views.CourseDetailView.as_view(), name='course-detail'),
+    path('api/', include(router.urls)),
 ]
