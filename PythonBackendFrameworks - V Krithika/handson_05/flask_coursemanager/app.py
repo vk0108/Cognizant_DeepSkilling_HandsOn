@@ -1,4 +1,4 @@
-from flask import Flask, app, jsonify
+from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
@@ -8,15 +8,17 @@ migrate = Migrate()
 
 def create_app():
     from courses.routes import courses_bp
+
     app = Flask(__name__)
     app.config.from_object(Config)
     app.register_blueprint(courses_bp)
     db.init_app(app)
     migrate.init_app(app, db)
-    return app
 
-if __name__ == '__main__':
-    app = create_app()
+    with app.app_context():
+        from courses import models
+        db.create_all()
+
     @app.errorhandler(404)
     def error_404(error):
         message = {
@@ -36,4 +38,5 @@ if __name__ == '__main__':
             "message": "The server encountered an internal error and was unable to complete your request."
         }
         return jsonify(message), 500
-    app.run(debug=True, port=5000)
+
+    return app
