@@ -22,13 +22,15 @@ from rest_framework import routers
 from django.urls import include, path
 
 router = routers.DefaultRouter()
-router.register(r'courses', views.CourseViewList, basename='course')
+router.register(r'courses', views.CourseViewSet, basename='course')
+router.register(r'students', views.StudentViewSet, basename='student')
+router.register(r'enrollments', views.EnrollmentViewSet, basename='enrollment')
 
-# This has a list of URL patterns that maps URLs to views. 
+# This has a list of URL patterns that maps URLs to views.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/hello/', views.hello_view, name='hello'),
-    path('api/courses/', views.CourseListView.as_view(), name='course-list'),
-    path('api/courses/<int:pk>/', views.CourseDetailView.as_view(), name='course-detail'),
+    path('api/courses-basic/', views.CourseListView.as_view(), name='course-list'),
+    path('api/courses-basic/<int:pk>/', views.CourseDetailView.as_view(), name='course-detail'),
     path('api/', include(router.urls)),
 ]

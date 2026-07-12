@@ -18,5 +18,5 @@ class StudentSerializer(serializers.ModelSerializer):
 
 class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model  =Enrollment
+        model = Enrollment
         fields = '__all__'
