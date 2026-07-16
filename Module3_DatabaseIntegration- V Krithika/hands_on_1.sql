@@ -65,4 +65,27 @@ DESC professors;
 
 ##Task 2
 
+-- 1NF also known as the First Normal Form, is property of a relation in a RDBMS. 
+-- It ensures that no column contains multiple values in any row and that each column contains atomic values.
+--In other words, each column should contain only one value per row, and each row should be unique. And here all the tables created above are in 1NF.
+
+-- 2NF is known as the Second Normal Form where all non-ket attributes are fully functionally dependent on the primary key.
+-- In the enrollments table, the candidate key is (student_id, course_id)
+-- so they depend on both student_id and course_id together. There are no partial dependencies.
+
+-- 3NF is known as the Third Normal Form. There are no transitive dependencies in the table.
+-- grade and enrollment_date depend directly on the enrollment record.
+-- No non-key attribute depends on another non-key attribute.
+
+## Task 3
+
+alter table students add column phone_number VARCHAR(15); 
+
+alter table courses add column max_seats Int default 60;
+
+alter table enrollments add constraint chk_grade check (grade in ('A', 'B', 'C', 'D', 'F') OR grade is null);
+
+alter table departments rename column hod_name to head_of_dept;
+
+alter table students drop column phone_number;
 
